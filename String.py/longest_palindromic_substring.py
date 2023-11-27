@@ -1,38 +1,28 @@
-s="babad"
-# def longestpalindrome(s):
-#     dict={}
-#     left=0
-#     for i in range(len(s)):
-#         for right in range(len(s)):
-#             if s[right]==s[left]:
-#                 print(s[:right])
-#         left+=1
-#     # print(s[:right])
-# longestpalindrome(s)
-
-# class Solution:
-#     def longestPalindrome(self, s: str) -> str:
-#         if len(s) <= 1:
-#             return s
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        if len(s) <= 1:
+            return s
         
-#         Max_Len=1
-#         Max_Str=s[0]
-#         s = '#' + '#'.join(s) + '#'
-#         dp = [0 for _ in range(len(s))]
-#         center = 0
-#         right = 0
-#         for i in range(len(s)):
-#             if i < right:
-#                 dp[i] = min(right-i, dp[2*center-i])
-#             while i-dp[i]-1 >= 0 and i+dp[i]+1 < len(s) and s[i-dp[i]-1] == s[i+dp[i]+1]:
-#                 dp[i] += 1
-#             if i+dp[i] > right:
-#                 center = i
-#                 right = i+dp[i]
-#             if dp[i] > Max_Len:
-#                 Max_Len = dp[i]
-#                 Max_Str = s[i-dp[i]:i+dp[i]+1].replace('#','')
-#         return Max_Str
+        Max_Len=1
+        Max_Str=s[0]
+        s = '#' + '#'.join(s) + '#'
+        dp = [0 for _ in range(len(s))]
+        center = 0
+        right = 0
+        for i in range(len(s)):
+            if i < right:
+                dp[i] = min(right-i, dp[2*center-i])
+            while i-dp[i]-1 >= 0 and i+dp[i]+1 < len(s) and s[i-dp[i]-1] == s[i+dp[i]+1]:
+                dp[i] += 1
+            if i+dp[i] > right:
+                center = i
+                right = i+dp[i]
+            if dp[i] > Max_Len:
+                Max_Len = dp[i]
+                Max_Str = s[i-dp[i]:i+dp[i]+1].replace('#','')
+        return Max_Str
+s="babad"
+###################################################################################3
 def longestPalindrome(s: str) -> str:
     # Base case: if the string is empty or has only one character, it's already a palindrome
     if len(s) <= 1:
@@ -75,6 +65,45 @@ def longestPalindrome(s: str) -> str:
 
     # Return the longest palindromic substring
     return max_substring
+########################################
+def longest_palindromic_substring(s):
+    # Preprocess the string to insert special characters
+    # to handle even-length palindromes
+    processed_str = '#'.join('^{}$'.format(s))
+
+    n = len(processed_str)
+    p = [0] * n
+    center, right = 0, 0
+
+    for i in range(1, n - 1):
+        if i < right:
+            mirror = 2 * center - i
+            p[i] = min(right - i, p[mirror])
+
+        # Attempt to expand palindrome centered at i
+        while processed_str[i + 1 + p[i]] == processed_str[i - 1 - p[i]]:
+            p[i] += 1
+
+        # If palindrome centered at i expands past right,
+        # adjust center and right boundary
+        if i + p[i] > right:
+            center, right = i, i + p[i]
+
+    # Find the maximum element in p
+    max_len, center_index = max((n, i) for i, n in enumerate(p))
+
+    # Extract the palindrome substring and remove special characters
+    start = (center_index - max_len) // 2
+    end = start + max_len
+
+    return s[start:end]
+
+# Example usage
+s = "babad"
+result = longest_palindromic_substring(s)
+print(result)
+
+
 
 
 

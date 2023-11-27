@@ -93,22 +93,26 @@
 # for count, ele in enumerate(l1):
 # 	print(count)
 # 	print(ele)
-def merge_intervals(intervals):
-    # Sort intervals based on the start time
-    intervals.sort(key=lambda x: x[0])
+# def merge_intervals(intervals):
+#     # Sort intervals based on the start time
+#     intervals.sort(key=lambda x: x[0])
 
-    merged = []
-    for interval in intervals:
-        # If the merged list is empty or if the current interval does not overlap with the previous one
-        if not merged or interval[0] > merged[-1][1]:
-            merged.append(interval)
-        else:
-            # If the current interval overlaps with the previous one, merge them
-            merged[-1] = (merged[-1][0], max(merged[-1][1], interval[1]))
+#     merged = []
+#     for interval in intervals:
+#         # If the merged list is empty or if the current interval does not overlap with the previous one
+#         if not merged or interval[0] > merged[-1][1]:
+#             merged.append(interval)
+#         else:
+#             # If the current interval overlaps with the previous one, merge them
+#             merged[-1] = (merged[-1][0], max(merged[-1][1], interval[1]))
 
-    return merged
+#     return merged
 
-# Example usage:
-intervals = [(1, 3), (2, 6), (8, 10), (15, 18)]
+# # Example usage:
+# intervals = [(1, 3), (2, 6), (8, 10), (15, 18)]
 # result = merge_intervals(intervals)
 # print(result)
+# arr = [1, 2, 3, 6, 5, 4]
+
+
+    
