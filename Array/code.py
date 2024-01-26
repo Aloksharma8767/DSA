@@ -113,6 +113,8 @@
 # result = merge_intervals(intervals)
 # print(result)
 # arr = [1, 2, 3, 6, 5, 4]
+h="hello"
+"{2}h".format("l")
+print(h)
 
 
-    

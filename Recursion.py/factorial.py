@@ -6,11 +6,12 @@ def fac(a):
         product=product*(i+1)
     print(product)
 fac(a)
+
 #factorial using recursive approach
 def factorial(a):
     if a<=0:
         return 1
     else:
         return a*factorial(a-1)
-b=factorial(a)
+b=factorial(input())
 print(b)

@@ -1,0 +1,1 @@
+ temp=nums[j]

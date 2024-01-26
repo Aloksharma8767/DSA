@@ -1,0 +1,15 @@
+{
+    "editor.fontFamily": "JetBrains Mono,Consolas, 'Courier New', monospace",
+    "editor.cursorStyle": "line",
+    "oneDarkPro.italic": false,
+    "oneDarkPro.editorTheme": "One Dark Pro",
+    "oneDarkPro.markdownStyle": true,
+    "oneDark.italic": false,
+    "oneDarkPro.vivid": true,
+    "json.schemas": [
+
+        
+    ],
+    "files.autoSave": "afterDelay",
+    "python.REPL.enableREPLSmartSend": false
+}
